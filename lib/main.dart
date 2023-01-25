@@ -1,3 +1,4 @@
+import 'package:coretemplate/core/base/state/base_state.dart';
 import 'package:flutter/material.dart';
 
 void main() {
