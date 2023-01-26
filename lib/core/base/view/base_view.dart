@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class BaseView<T> extends StatefulWidget {
+class BaseView<T extends ChangeNotifier> extends StatefulWidget {
   const BaseView({
     Key? key,
     required this.viewModel,
