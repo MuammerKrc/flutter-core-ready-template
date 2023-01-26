@@ -2,6 +2,8 @@ import 'package:coretemplate/core/base/state/base_state.dart';
 import 'package:coretemplate/core/constants/app/app_constants.dart';
 import 'package:coretemplate/core/init/language/language_manager.dart';
 import 'package:coretemplate/core/init/language/locale_keys.g.dart';
+import 'package:coretemplate/core/init/navigation/navigation_route.dart';
+import 'package:coretemplate/core/init/navigation/navigation_service.dart';
 import 'package:coretemplate/core/init/notifier/initial_providers.dart';
 import 'package:coretemplate/core/init/notifier/theme_notifier.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -10,7 +12,7 @@ import 'package:provider/provider.dart';
 
 void main() {
   runApp(MultiProvider(
-    providers: [...InitialProviders.instace.providers],
+    providers: [...InitialProviders.instace.dependItems],
     child: EasyLocalization(
       supportedLocales: LanguageManager.instance.supportedLocales,
       path: ApplicationConstants.LANG_ASSET_PATH,
@@ -28,6 +30,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        navigatorKey: NavigationService.instance.navigatorKey,
+        onGenerateRoute: NavigationRoute.instace.generateRoute,
         title: LocaleKeys.welcome.tr(),
         theme: context.read<ThemeNotifier>().themeData,
         home: Scaffold(
