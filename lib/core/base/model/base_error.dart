@@ -1,0 +1,3 @@
+class BaseError {
+  String? message;
+}
