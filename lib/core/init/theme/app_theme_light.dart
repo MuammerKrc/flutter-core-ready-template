@@ -8,5 +8,6 @@ class AppThemeLight extends BaseAppTheme {
     return _instance ??= AppThemeLight._init();
   }
 
-  ThemeData get theme => ThemeData.light();
+  ThemeData get theme => ThemeData.light()
+      .copyWith(accentTextTheme: ThemeData.light().accentTextTheme.copyWith());
 }

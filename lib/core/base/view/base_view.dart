@@ -1,3 +1,4 @@
+import 'package:coretemplate/core/base/state/base_state.dart';
 import 'package:flutter/material.dart';
 
 class BaseView<T extends ChangeNotifier> extends StatefulWidget {
@@ -17,7 +18,7 @@ class BaseView<T extends ChangeNotifier> extends StatefulWidget {
   _BaseViewState createState() => _BaseViewState();
 }
 
-class _BaseViewState extends State<BaseView> {
+class _BaseViewState extends BaseState<BaseView> {
   // late T model;
   @override
   void initState() {
